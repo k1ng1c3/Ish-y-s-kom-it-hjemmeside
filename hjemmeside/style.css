@@ -1,0 +1,1143 @@
+/* ===========================================
+   RESET & ROOT
+   =========================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --hvid: #ffffff;
+  --baggrund: #F9F8F6;
+  --baggrund-lys: #EEF0EC;
+  --kant: #D6D3CC;
+  --kant-mork: #B0ACA3;
+  --tekst: #1C1B18;
+  --tekst-2: #4A4742;
+  --tekst-3: #7A7773;
+  --accent: #2B5C3F;
+  --accent-lys: #D4E8DB;
+  --accent-2: #1D4060;
+  --accent-2-lys: #D0E4F0;
+  --rod: #C0392B;
+  --rod-lys: #FAE5E3;
+
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  --radius: 6px;
+  --radius-lg: 12px;
+  --skygge: 0 1px 4px rgba(28,27,24,0.08), 0 4px 16px rgba(28,27,24,0.06);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--baggrund);
+  color: var(--tekst);
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===========================================
+   TILGÆNGELIGHED
+   =========================================== */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  z-index: 999;
+  transition: top 0.2s;
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* ===========================================
+   NAVIGATION
+   =========================================== */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--hvid);
+  border-bottom: 1px solid var(--kant);
+}
+
+.nav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.nav-logo {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--tekst);
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
+.nav-links a {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--tekst-2);
+  text-decoration: none;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius);
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-links a:hover {
+  background: var(--baggrund-lys);
+  color: var(--tekst);
+}
+
+/* ===========================================
+   FORSIDE / HERO
+   =========================================== */
+.hero {
+  background: var(--hvid);
+  border-bottom: 1px solid var(--kant);
+  padding: 5rem 2rem 4rem;
+}
+
+.hero-inner {
+  max-width: 780px;
+  margin: 0 auto;
+}
+
+.hero-kursus {
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--tekst);
+  margin-bottom: 1.25rem;
+}
+
+.hero-beskrivelse {
+  font-size: 1.1rem;
+  color: var(--tekst-2);
+  max-width: 600px;
+  margin-bottom: 2rem;
+  line-height: 1.8;
+}
+
+.hero-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.btn-hoved {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius);
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.btn-hoved:hover {
+  background: #1e4430;
+}
+
+.btn-sek {
+  display: inline-block;
+  background: transparent;
+  color: var(--tekst);
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.75rem 1.75rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--kant-mork);
+  text-decoration: none;
+  transition: background 0.15s;
+}
+
+.btn-sek:hover {
+  background: var(--baggrund-lys);
+}
+
+.hero-tal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--kant);
+}
+
+.tal-punkt {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.tal {
+  font-family: var(--font-display);
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--tekst);
+  line-height: 1;
+}
+
+.tal-label {
+  font-size: 0.8rem;
+  color: var(--tekst-3);
+  font-weight: 500;
+}
+
+/* ===========================================
+   FÆLLES SEKTION
+   =========================================== */
+.sektion {
+  padding: 5rem 2rem;
+  background: var(--baggrund);
+}
+
+.sektion-lys {
+  background: var(--hvid);
+}
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sek-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.sektion h2,
+.sektion-lys h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--tekst);
+  margin-bottom: 0.75rem;
+  line-height: 1.15;
+}
+
+.sek-intro {
+  font-size: 1rem;
+  color: var(--tekst-2);
+  max-width: 640px;
+  margin-bottom: 2.5rem;
+  line-height: 1.8;
+}
+
+.mellemoverskrift {
+  font-family: var(--font-display);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--tekst);
+  margin: 3rem 0 1.25rem;
+}
+
+/* ===========================================
+   FASE-LISTE (OPBYGNING)
+   =========================================== */
+.fase-liste {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 3rem;
+  border: 1px solid var(--kant);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--hvid);
+}
+
+.fase {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid var(--kant);
+}
+
+.fase:last-child {
+  border-bottom: none;
+}
+
+.fase-num {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--accent);
+  line-height: 1;
+  flex-shrink: 0;
+  width: 2rem;
+  text-align: center;
+}
+
+.fase h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--tekst);
+  margin-bottom: 0.3rem;
+}
+
+.fase p {
+  font-size: 0.9rem;
+  color: var(--tekst-2);
+  line-height: 1.65;
+}
+
+/* TRE KORT */
+.tre-kort {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.kort {
+  background: var(--hvid);
+  border: 1px solid var(--kant);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+}
+
+.sektion-lys .kort {
+  background: var(--baggrund);
+}
+
+.kort-ikon {
+  font-size: 1.4rem;
+  margin-bottom: 0.6rem;
+  display: block;
+}
+
+.kort h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--tekst);
+  margin-bottom: 0.75rem;
+}
+
+.kort ul {
+  list-style: none;
+  padding: 0;
+}
+
+.kort ul li {
+  font-size: 0.875rem;
+  color: var(--tekst-2);
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--kant);
+  display: flex;
+  gap: 0.5rem;
+  align-items: baseline;
+}
+
+.kort ul li:last-child {
+  border-bottom: none;
+}
+
+.kort ul li::before {
+  content: "–";
+  color: var(--accent);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* ===========================================
+   BEGREBER GRID
+   =========================================== */
+.begreber-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.25rem;
+}
+
+.begreb {
+  background: var(--baggrund);
+  border: 1px solid var(--kant);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.begreb:hover {
+  border-color: var(--accent);
+  box-shadow: var(--skygge);
+}
+
+.begreb-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.begreb-num {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  color: var(--tekst-3);
+}
+
+.kat {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.55rem;
+  border-radius: 3px;
+}
+
+.kat-kom { background: #E0F0E6; color: #1C5C32; }
+.kat-ret { background: #FBF0D6; color: #7A4D00; }
+.kat-teo { background: #E4EAF8; color: #233580; }
+.kat-des { background: #F5E6F8; color: #5B1E73; }
+.kat-ux  { background: #E6F5F8; color: #1A4F5E; }
+.kat-pro { background: #F8EDE6; color: #7A3720; }
+
+.begreb h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--tekst);
+  margin-bottom: 0.5rem;
+}
+
+.begreb p {
+  font-size: 0.875rem;
+  color: var(--tekst-2);
+  line-height: 1.7;
+}
+
+.begreb em {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 600;
+}
+
+/* ===========================================
+   EKSEMPEL KORT
+   =========================================== */
+.eksempel-kort {
+  background: var(--hvid);
+  border: 1px solid var(--kant);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  margin-bottom: 2rem;
+}
+
+.eksempel-kort:last-child {
+  margin-bottom: 0;
+}
+
+.eks-header {
+  background: var(--tekst);
+  padding: 1.25rem 1.75rem;
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+}
+
+.eks-nr {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #A0C8A8;
+  flex-shrink: 0;
+}
+
+.eks-header h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.eks-krop {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+}
+
+.eks-tekst {
+  padding: 1.75rem;
+  border-right: 1px solid var(--kant);
+}
+
+.eks-tekst p {
+  font-size: 0.9rem;
+  color: var(--tekst-2);
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.eks-tekst strong {
+  color: var(--tekst);
+}
+
+.eks-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.eks-tags span {
+  background: var(--baggrund-lys);
+  border: 1px solid var(--kant);
+  font-size: 0.72rem;
+  font-weight: 500;
+  padding: 0.25rem 0.6rem;
+  border-radius: 3px;
+  color: var(--tekst-2);
+}
+
+.eks-mockup {
+  padding: 1.5rem;
+  background: var(--baggrund);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+/* MOCKUP VINDUER */
+.mockup {
+  width: 100%;
+  max-width: 260px;
+  background: var(--hvid);
+  border: 1px solid var(--kant-mork);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--skygge);
+}
+
+.mockup-bar {
+  display: flex;
+  gap: 5px;
+  padding: 8px 10px;
+  background: var(--baggrund-lys);
+  border-bottom: 1px solid var(--kant);
+}
+
+.prik {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.p-rod   { background: #EC6A5E; }
+.p-gul   { background: #F4BF4F; }
+.p-groen { background: #61C554; }
+
+.mockup-site1 {
+  padding: 1rem 1rem 0.75rem;
+  background: linear-gradient(160deg, #EDF5EE 0%, #F5F9F6 100%);
+}
+
+.m-logo {
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+}
+
+.m-h1 {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--tekst);
+  margin-bottom: 0.25rem;
+  line-height: 1.2;
+}
+
+.m-sub {
+  font-size: 0.65rem;
+  color: var(--tekst-2);
+  margin-bottom: 0.6rem;
+}
+
+.m-knap {
+  display: inline-block;
+  background: var(--accent);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 600;
+  padding: 0.28rem 0.65rem;
+  border-radius: 3px;
+  margin-bottom: 0.75rem;
+}
+
+.m-kort-rad {
+  display: flex;
+  gap: 5px;
+  padding-bottom: 0.75rem;
+}
+
+.m-lille {
+  flex: 1;
+  height: 36px;
+  background: var(--hvid);
+  border-radius: var(--radius);
+  border: 1px solid var(--kant);
+}
+
+.mockup-video {
+  padding: 1.25rem;
+  background: #18191C;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.video-play {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.video-titel {
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+}
+
+.video-tid {
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.45);
+}
+
+.video-bar {
+  width: 100%;
+  height: 3px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 2px;
+  margin-top: 0.35rem;
+}
+
+.video-prog {
+  height: 100%;
+  width: 35%;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.mock-note {
+  font-size: 0.7rem;
+  color: var(--tekst-3);
+  text-align: center;
+  font-style: italic;
+}
+
+/* ===========================================
+   TEORI GRID
+   =========================================== */
+.teori-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.teori-kort {
+  background: var(--baggrund);
+  border: 1px solid var(--kant);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem 1.5rem 1.25rem;
+  border-top: 3px solid var(--accent);
+}
+
+.t-ikon {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.teori-kort h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--tekst);
+  margin-bottom: 0.2rem;
+}
+
+.t-under {
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.teori-kort p {
+  font-size: 0.875rem;
+  color: var(--tekst-2);
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.t-brug {
+  background: var(--accent-2-lys);
+  border-left: 3px solid var(--accent-2);
+  padding: 0.6rem 0.75rem;
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 0.82rem;
+  color: var(--accent-2);
+  line-height: 1.6;
+}
+
+.t-brug strong {
+  font-weight: 600;
+}
+
+/* MÅLGRUPPE BOKS */
+.maalgruppe-boks {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  background: var(--baggrund);
+  border: 1px solid var(--kant);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.mg-tekst h3 {
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--tekst);
+  margin-bottom: 0.75rem;
+}
+
+.mg-tekst p {
+  font-size: 0.9rem;
+  color: var(--tekst-2);
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.mg-tekst em {
+  color: var(--accent);
+  font-style: normal;
+  font-weight: 600;
+}
+
+.mg-tekst ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+
+.mg-tekst ul li {
+  font-size: 0.875rem;
+  color: var(--tekst-2);
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--kant);
+  line-height: 1.6;
+}
+
+.mg-tekst ul li:last-child {
+  border-bottom: none;
+}
+
+.mg-tekst ul li strong {
+  color: var(--tekst);
+}
+
+/* PERSONA KORT */
+.persona {
+  background: var(--tekst);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  color: #fff;
+}
+
+.persona-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+}
+
+.persona-info {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.75rem;
+}
+
+.persona-info strong {
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.persona-info span {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+}
+
+.persona-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.persona-tags span {
+  background: rgba(255,255,255,0.1);
+  font-size: 0.68rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 3px;
+  color: rgba(255,255,255,0.82);
+}
+
+.persona blockquote {
+  font-size: 0.82rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.65);
+  border-top: 1px solid rgba(255,255,255,0.12);
+  padding-top: 0.75rem;
+  line-height: 1.55;
+  quotes: none;
+}
+
+/* ===========================================
+   FEEDBACK
+   =========================================== */
+.feedback-trin {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 3rem;
+  background: var(--hvid);
+  border: 1px solid var(--kant);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  counter-reset: trin;
+}
+
+.trin {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.5rem 1.75rem;
+  border-bottom: 1px solid var(--kant);
+  counter-increment: trin;
+}
+
+.trin:last-child {
+  border-bottom: none;
+}
+
+.trin-ikon {
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+.trin h4 {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--tekst);
+  margin-bottom: 0.3rem;
+}
+
+.trin p {
+  font-size: 0.875rem;
+  color: var(--tekst-2);
+  line-height: 1.65;
+}
+
+/* TABEL */
+.tabel-wrapper {
+  overflow-x: auto;
+  border: 1px solid var(--kant);
+  border-radius: var(--radius-lg);
+  background: var(--hvid);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+thead {
+  background: var(--tekst);
+  color: #fff;
+}
+
+th {
+  padding: 0.9rem 1.25rem;
+  text-align: left;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.82);
+  white-space: nowrap;
+}
+
+td {
+  padding: 0.9rem 1.25rem;
+  vertical-align: top;
+  border-bottom: 1px solid var(--kant);
+  color: var(--tekst-2);
+  line-height: 1.6;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background: var(--baggrund);
+}
+
+/* ===========================================
+   KILDER
+   =========================================== */
+.kilde-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.kilde-grid h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--tekst);
+  margin-bottom: 0.75rem;
+}
+
+.kilde-grid p {
+  font-size: 0.875rem;
+  color: var(--tekst-2);
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+.kilde-eks {
+  background: var(--baggrund);
+  border: 1px solid var(--kant);
+  border-left: 3px solid var(--accent-2);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  padding: 0.75rem 1rem;
+  font-size: 0.82rem;
+  color: var(--tekst-2);
+  line-height: 1.65;
+  margin-bottom: 0.75rem;
+}
+
+.kilde-eks strong {
+  display: block;
+  font-weight: 600;
+  color: var(--tekst);
+  margin-bottom: 0.2rem;
+}
+
+.kilde-eks em {
+  font-style: italic;
+}
+
+.kilde-liste {
+  list-style: none;
+  padding: 0;
+}
+
+.kilde-liste li {
+  font-size: 0.875rem;
+  padding: 0.45rem 0 0.45rem 1.5rem;
+  border-bottom: 1px solid var(--kant);
+  color: var(--tekst-2);
+  position: relative;
+  line-height: 1.55;
+}
+
+.kilde-liste li:last-child {
+  border-bottom: none;
+}
+
+.kilde-liste li::before {
+  position: absolute;
+  left: 0;
+  font-size: 0.85rem;
+}
+
+.kilde-liste li.ok::before {
+  content: "✓";
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.kilde-liste li.nej::before {
+  content: "✗";
+  color: var(--rod);
+  font-weight: 700;
+}
+
+.kildeliste-boks {
+  background: var(--baggrund);
+  border: 1px solid var(--kant);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+}
+
+.kildeliste-boks h3 {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--tekst);
+  margin-bottom: 1.25rem;
+}
+
+.kildeliste {
+  padding-left: 1.5rem;
+}
+
+.kildeliste li {
+  font-size: 0.85rem;
+  color: var(--tekst-2);
+  margin-bottom: 0.75rem;
+  line-height: 1.7;
+}
+
+.kildeliste em {
+  font-style: italic;
+}
+
+/* ===========================================
+   FOOTER
+   =========================================== */
+.footer {
+  background: var(--tekst);
+  color: rgba(255,255,255,0.55);
+  padding: 2.5rem 2rem;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.footer-logo {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.footer p {
+  font-size: 0.875rem;
+}
+
+.footer-lille {
+  font-size: 0.75rem;
+  opacity: 0.5;
+  margin-top: 0.25rem;
+}
+
+/* ===========================================
+   RESPONSIVE
+   =========================================== */
+@media (max-width: 860px) {
+  .eks-krop {
+    grid-template-columns: 1fr;
+  }
+
+  .eks-tekst {
+    border-right: none;
+    border-bottom: 1px solid var(--kant);
+  }
+
+  .maalgruppe-boks {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .nav-links {
+    display: none;
+  }
+
+  .hero {
+    padding: 3.5rem 1.5rem 3rem;
+  }
+
+  .sektion, .sektion-lys {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .hero-tal {
+    gap: 1.25rem;
+  }
+
+  table {
+    font-size: 0.8rem;
+  }
+
+  th, td {
+    padding: 0.7rem 0.9rem;
+  }
+}
